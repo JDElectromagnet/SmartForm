@@ -13,7 +13,7 @@
     <div class="jumbotron" id="welcome">
       <h1>Welcome to SmartForm!</h1>
       <p>Front-end Technology Survey</p>
-      <p><button class="btn btn-primary btn-lg">Start Survey</button></p>
+      <p><button id="startbtn" class="btn btn-primary btn-lg">Start Survey</button></p>
     </div>
     <!-- Welcome END -->
     <!-- Question 1 -->
@@ -25,9 +25,9 @@
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+          <input type="email" class="form-control" id="email" placeholder="Email">
         </div>
-        <button class="btn btn-success">Next</button>
+        <button id="q1Next" disabled class="btn btn-success">Next</button>
       </div>
     </div>
     <!-- Question 1 END -->
@@ -43,7 +43,7 @@
     <!-- Question 2 END -->
     <!-- Question 2a -->
     <div class="row jumbotron" id="q2a">
-      <div class="col-sm-6">
+      <div id="htmlQ" class="col-sm-6">
         <p>What do you <strong>like</strong> about HTML?</p>
         <div class="checkbox">
           <label>
