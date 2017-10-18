@@ -30,15 +30,51 @@ $("#startbtn").click(function(event){
 $("#name").change(function(event){
 console.log($("#name").val());
 });
+////
 
-$("#email").change(function(event){
-console.log($("#email").val());
+$("#email").change(function(e) {
+    $('#q1Next').click(function() {
+        var sEmail = $('#email').val();
+        if ($.trim(sEmail).length == 0) {
+            alert('Please enter valid email address');
+            e.preventDefault();
+        }
+        if (validateEmail(sEmail)) {
+            alert('Email is valid');
+        }
+        else {
+            alert('Invalid Email Address');
+            e.preventDefault();
 
-  // if($("#email").val() && $("name").val()== ""){
-  // }
-  $("#q1Next").prop("disabled", false);
 
+              $("#q1").show();
+              $("#q2").hide();
+
+
+        }
+    });
+
+     $("#q1Next").prop("disabled", false);
 });
+
+function validateEmail(sEmail) {
+    var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    if (filter.test(sEmail)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+/////
+// $("#email").change(function(event){
+// console.log($("#email").val());
+//
+//   // if($("#email").val() && $("name").val()== ""){
+//   // }
+// //  $("#q1Next").prop("disabled", false);
+//
+// });
 
 $("#q1Next").click(function(event){
   userData.name = $("#name").val();
@@ -55,12 +91,25 @@ $("#h").click(function(event){
   $("#q2a").show();
   $("#q2b").hide();
   $("#q2c").hide();
-  for(var i=0;i<8;i++)
+//  for(var i=0;i<8;i++)
   {
-      userData.html.likes[i]=null;
-      userData.html.dislikes[i]=null;
-      userData.currentQuestion = "q2a";
-      localStorage.setItem('userData',JSON.stringify(userData));
+      // userData.html.likes[i]=null;
+      // userData.html.dislikes[i]=null;
+      // userData.currentQuestion = "q2a";
+      // localStorage.setItem('userData',JSON.stringify(userData));
+      for(var i=0;i<9;i++)
+      {
+        //if(userData.html.likes[i]!=1){
+          userData.html.likes[i]=0;
+          userData.html.dislikes[i]=0;
+          userData.css.likes[i]=0;
+          userData.css.dislikes[i]=0;
+          userData.js.likes[i]=0;
+          userData.js.dislikes[i]=0;
+          userData.currentQuestion = "q2a";
+          localStorage.setItem('userData',JSON.stringify(userData));
+        //}
+      }
   }
 
 });
@@ -119,14 +168,7 @@ $("#hPrev").click(function(event){
 
 $("#hNext").click(function(event){
 //shows CSS
-for(var i=0;i<9;i++)
-{
-  if(userData.html.likes[i]!=1){
-    userData.html.dislikes[i]=1;
-    userData.currentQuestion = "q2a";
-    localStorage.setItem('userData',JSON.stringify(userData));
-  }
-}
+
   $("#q2a").hide();
   $("#q2b").show();
   $("#q2c").hide();
@@ -286,22 +328,22 @@ $("#hinlineRadio1").click(function(event){
   userData.strengths.html = "Weak";
   userData.currentQuestion = "q3";
   localStorage.setItem('userData',JSON.stringify(userData));
-})
+});
 $("#hinlineRadio2").click(function(event){
   userData.strengths.html = "Average";
   userData.currentQuestion = "q3";
   localStorage.setItem('userData',JSON.stringify(userData));
-})
+});
 $("#hinlineRadio3").click(function(event){
   userData.strengths.html = "Good";
   userData.currentQuestion = "q3";
   localStorage.setItem('userData',JSON.stringify(userData));
-})
+});
 $("#hinlineRadio4").click(function(event){
   userData.strengths.html = "Expert";
   userData.currentQuestion = "q3";
   localStorage.setItem('userData',JSON.stringify(userData));
-})
+});
 //////
 
 ////strengths css
@@ -309,22 +351,22 @@ $("#cinlineRadio1").click(function(event){
   userData.strengths.css = "Weak";
   userData.currentQuestion = "q3";
   localStorage.setItem('userData',JSON.stringify(userData));
-})
+});
 $("#cinlineRadio2").click(function(event){
   userData.strengths.css = "Average";
   userData.currentQuestion = "q3";
   localStorage.setItem('userData',JSON.stringify(userData));
-})
+});
 $("#cinlineRadio3").click(function(event){
   userData.strengths.css = "Good";
   userData.currentQuestion = "q3";
   localStorage.setItem('userData',JSON.stringify(userData));
-})
+});
 $("#cinlineRadio4").click(function(event){
   userData.strengths.css = "Expert";
   userData.currentQuestion = "q3";
   localStorage.setItem('userData',JSON.stringify(userData));
-})
+});
 //////
 
 ////strengths css
@@ -332,24 +374,29 @@ $("#jinlineRadio1").click(function(event){
   userData.strengths.js = "Weak";
   userData.currentQuestion = "q3";
   localStorage.setItem('userData',JSON.stringify(userData));
-})
+});
 $("#jinlineRadio2").click(function(event){
   userData.strengths.js = "Average";
   userData.currentQuestion = "q3";
   localStorage.setItem('userData',JSON.stringify(userData));
-})
+});
 $("#jinlineRadio3").click(function(event){
   userData.strengths.js = "Good";
   userData.currentQuestion = "q3";
   localStorage.setItem('userData',JSON.stringify(userData));
-})
+});
 $("#jinlineRadio4").click(function(event){
   userData.strengths.js = "Expert";
   userData.currentQuestion = "q3";
   localStorage.setItem('userData',JSON.stringify(userData));
 
-})
+});
 
+
+$("#deletebtn").click(function(event){
+
+  userData.length = 0;
+});
 
 //////
 $("#view").click(function(event){
