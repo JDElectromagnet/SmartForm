@@ -21,7 +21,7 @@ var userData = {
 };
 //  localStorage.setItem('userData', JSON.stringify(userData));
 //}
-
+$("#answers").hide();
 $("#startbtn").click(function(event){
   $("#welcome").hide();
   $("#q1").show();
@@ -353,6 +353,52 @@ $("#jinlineRadio4").click(function(event){
 
 //////
 $("#view").click(function(event){
-  document.getElementById('#answers').innerHTML = userData.name;
+  $("#thanks").hide();
+  $("#answers").show();
+  document.getElementById('0').innerHTML = "Name: "+userData.name;
+  document.getElementById('1').innerHTML = "Email: "+userData.email;
+  document.getElementById('2').innerHTML = "HTML Likes";
+  document.getElementById('3').innerHTML = "Learning the basics is trivial: "+userData.html.likes[0];
+  document.getElementById('4').innerHTML = "No hassle: write code in a text editor and open in Browser: "+userData.html.likes[1];
+  document.getElementById('5').innerHTML = "Tags are easy to remember: "+userData.html.likes[2];
+  document.getElementById('6').innerHTML = "HTML5 features like canvas are powerful: "+userData.html.likes[3];
+  document.getElementById('7').innerHTML = "HTML Dislikes";
+  document.getElementById('8').innerHTML = "Difficult to learn: "+userData.html.dislikes[0];
+  document.getElementById('9').innerHTML = "Having to close tags is annoying!: "+userData.html.dislikes[1];
+  document.getElementById('10').innerHTML = "Code looks pretty messy: "+userData.html.dislikes[2];
+  document.getElementById('11').innerHTML = "Too many tags and attributes to remember: "+userData.html.dislikes[3];
+  ////////////////////////////////////////////////////////////CSS////////////////////////////////////////////////
 
+  document.getElementById('c2').innerHTML = "CSS Likes";
+  document.getElementById('c3').innerHTML = "Syntax is easy to learn: "+userData.css.likes[0];
+  document.getElementById('c4').innerHTML = "Can be used as an art tool: "+userData.css.likes[1];
+  document.getElementById('c5').innerHTML = "Enables creativity in web design: "+userData.css.likes[2];
+  document.getElementById('c7').innerHTML = "CSS Dislikes";
+  document.getElementById('c8').innerHTML = "Difficult to learn: "+userData.css.dislikes[0];
+  document.getElementById('c9').innerHTML = "Debugging is a nightmare: "+userData.css.dislikes[1];
+  document.getElementById('c10').innerHTML = "Conflicts can be very confusing: "+userData.css.dislikes[2];
+  document.getElementById('c11').innerHTML = "Code is messy: "+userData.css.dislikes[3];
+
+  /////////////////////////////////////////////javascript///////////////////////////////////////////
+
+  document.getElementById('j2').innerHTML = "JAVASCRIPT Likes";
+  document.getElementById('j3').innerHTML = "Easy to learn: "+userData.js.likes[0];
+  document.getElementById('j4').innerHTML = "Multple programming styles supported: "+userData.js.likes[1];
+  document.getElementById('j5').innerHTML = "Just code and run easily in the browser: "+userData.js.likes[2];
+  document.getElementById('j6').innerHTML = "Huge growing community and plenty of resources online: "+userData.js.likes[3];
+  document.getElementById('j7').innerHTML = "JAVASCRIPT Dislikes";
+  document.getElementById('j8').innerHTML = "Difficult to learn: "+userData.js.dislikes[0];
+  document.getElementById('j9').innerHTML = "Multple programming paradigms supported (too many options): "+userData.js.dislikes[1];
+  document.getElementById('j10').innerHTML = "Easy to right messy code: "+userData.js.dislikes[2];
+  document.getElementById('j11').innerHTML = "No multi threading: "+userData.js.dislikes[3];
+
+  ////////////////////////strengths
+  document.getElementById('s0').innerHTML = "HTML";
+  document.getElementById('s1').innerHTML = userData.strengths.html;
+  document.getElementById('s2').innerHTML = "CSS";
+  document.getElementById('s3').innerHTML = userData.strengths.css;
+  document.getElementById('s4').innerHTML = "JAVASCRIPT";
+  document.getElementById('s5').innerHTML = userData.strengths.js;
+
+  console.log(userData);
 });
